@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  apple-music-stats-interaction:
+    container_name: apple-music-stats-interaction
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: apple-music-stats-interaction:latest
+    ports:
+      - 8087:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=picnic12
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=picnic12
+      - POSTGRES_HOST=192.168.2.63
+    ports:
+      - "6543:5432"

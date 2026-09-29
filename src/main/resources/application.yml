@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties:
+      format_sql: true
+      default_schema: AMS
+spring.datasource:
+  platform: postgres
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: picnic12
+
+
+lastfm:
+  api:
+    key: 1e6d26831b3a7d5614e098ad10b7b01b
+    base-url: http://ws.audioscrobbler.com/2.0/
+
+
+setlistfm:
+  baseUrl: https://api.setlist.fm/rest/1.0
+  apiKey: _hJezkHZ_aWtp9fQtrPSKR7us9ojNYfNZz7J
+  enabled: true
